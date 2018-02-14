@@ -15,9 +15,9 @@ public class ComparisionServlet extends HttpServlet {
 
 			List<Developer> listDevs = getDevelopers();
 
-			System.out.println("Before Sort "+listDevs.size());
+			System.out.println("BEFORE SORT ");
 			for (Developer developer : listDevs) {
-				System.out.println(developer.getName());
+				System.out.println(developer.getName() +" "+developer.getSalary() +" "+developer.getAge());
 			} 
 
 			//SORT BY AGE
@@ -29,19 +29,21 @@ public class ComparisionServlet extends HttpServlet {
 					return o1.getAge() - o2.getAge();
 				}
 			});*/
-			System.out.println("After Sort");
+			System.out.println("/********SORT BY AGE************/");
+
 
 			//lambda here! //JAVA VERSION 8
 			listDevs.sort((Developer o1, Developer o2)->o1.getAge()-o2.getAge());
 
 			//java 8 only, lambda also, to print the List //JAVA VERSION 7
-			listDevs.forEach((developer)->System.out.println(developer.getName()));
+			listDevs.forEach((developer)->System.out.println(developer.getAge()));
 
 			/*for (Developer developer : listDevs) {    //JAVA VERSION 7
 				System.out.println(developer.getName());
 			}*/
 			
-			
+			System.out.println("/********SORT BY NAME************/");
+
 			//SORT BY NAME
 			Collections.sort(listDevs, new Comparator<Developer>() {
 				@Override
@@ -50,13 +52,32 @@ public class ComparisionServlet extends HttpServlet {
 				}
 			});
 
-			//lambda
+			//lambda 2 WAYS
 			listDevs.sort((Developer o1, Developer o2)->o1.getName().compareTo(o2.getName()));
+			listDevs.forEach((developer)->System.out.println(developer.getName()));
 
 			//lambda
 			listDevs.sort((o1, o2)->o1.getName().compareTo(o2.getName()));
-			
+//			listDevs.forEach((developer)->System.out.println(developer.getName()));
 
+			System.out.println("/********SORT BY SALARY************/");
+			
+			//SORT BY SALARY
+			Collections.sort(listDevs, new Comparator<Developer>() {
+				@Override
+				public int compare(Developer o1, Developer o2) {
+					return o1.getSalary().compareTo(o2.getSalary());
+				}
+			});
+			
+			//one way
+			listDevs.sort((Developer o1,Developer o2)->o1.getSalary().compareTo(o2.getSalary() ));
+			listDevs.forEach((developer)->System.out.println(developer.getSalary()));
+		
+			//another way
+			listDevs.sort((o1, o2)->o1.getSalary().compareTo(o2.getSalary()));
+
+			
 		}
 
 		private static List<Developer> getDevelopers() {
