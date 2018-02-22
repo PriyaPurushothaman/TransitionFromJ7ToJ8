@@ -84,10 +84,10 @@ public class ComparisionServlet extends HttpServlet {
 
 			List<Developer> result = new ArrayList<Developer>();
 
-			result.add(new Developer("mkyong", new BigDecimal("70000"), 33));
-			result.add(new Developer("alvin", new BigDecimal("80000"), 20));
-			result.add(new Developer("jason", new BigDecimal("100000"), 10));
-			result.add(new Developer("iris", new BigDecimal("170000"), 55));
+			result.add(new Developer("Priya", new BigDecimal("70000"), 33));
+			result.add(new Developer("Madhu", new BigDecimal("80000"), 20));
+			result.add(new Developer("John", new BigDecimal("100000"), 10));
+			result.add(new Developer("Cena", new BigDecimal("170000"), 55));
 
 			return result;
 
