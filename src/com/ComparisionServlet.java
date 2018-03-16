@@ -23,12 +23,12 @@ public class ComparisionServlet extends HttpServlet {
 			//SORT BY AGE
 			
 			//JAVA VERSION 7
-		/*	Collections.sort(listDevs, new Comparator<Developer>() {
+			Collections.sort(listDevs, new Comparator<Developer>() {
 				@Override
 				public int compare(Developer o1, Developer o2) {
 					return o1.getAge() - o2.getAge();
 				}
-			});*/
+			});
 			System.out.println("/********SORT BY AGE************/");
 
 
